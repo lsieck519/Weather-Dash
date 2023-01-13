@@ -23,9 +23,9 @@
 <br>
     <section>
       <div class="container">
-        <div class="notification is-primary">
+        <div class="notification is-primary" id="entercity">
           Enter the name of your <strong>city</strong>.
-          <div class="control is-loading">
+          <div class="control">
           <input id ="cityinput" class="input is-large" type="text" placeholder="New York">
         </div>
       </div>
@@ -35,21 +35,22 @@
       </div>
     </section>
 
-    <section class="section is-small">
+    <section class="section is-small" id = "currentweather">
       <h1 class="title">Today's Weather</h1>
+      <h2 id="date"></h2>
       <br>
       <h2 class="subtitle">
         <div id="citytoday"><strong>City</strong></div>
       </h2>
       <p>
-        <div>Current Conditions:</div>
-        <div>Temperature:</div>
-        <div>Humidity:</div>
-        <div>Wind Speed:</div>
+        <div id="CC">Current Conditions:</div>
+        <div id="temp">Temperature:</div>
+        <div id="humidity">Humidity:</div>
+        <div id="wind">Wind Speed:</div>
       </p>
     </section>
 
-    <section class="section is-large">
+    <section class="section is-small">
       <h1 class="title">A Look Ahead</h1>
       <h2 class="subtitle">
         5-Day Forecast Goes Here
@@ -123,14 +124,19 @@
     
     <footer class="footer">
       <div class="content has-text-centered">
-        <p>
-         footer goes here
-        </p>
+        <p></p>
       </div>
+
+
+      <div class="user">
+        <h2></h2>
+        
+    </div>
     </footer>
 
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
 
+    <script src="./assets/script.js"></script>
   </body>
 
   </html>

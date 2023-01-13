@@ -1,3 +1,20 @@
 body {
     background-color: whitesmoke;
 }
+
+#entercity {
+    font-size: 1.6em;
+}
+
+#date {
+    font-size: 1.5em;
+}
+
+#currentweather {
+    font-size: 1.4em;
+    background-color: rgb(155, 219, 248);
+}
+
+button {
+    margin-bottom: 3vh;
+}
