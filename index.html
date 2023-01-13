@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Weather</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="./assets/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+  <body>
+  
+    <section class="hero is-primary">
+      <div class="hero-body">
+        <p class="title">
+          Weather Dashboard
+        </p>
+        <p class="subtitle">
+          Get started by entering your city below!
+        </p>
+      </div>
+    </section>
+<br>
+    <section>
+      <div class="container">
+        <div class="notification is-primary">
+          Enter the name of your <strong>city</strong>.
+          <div class="control is-loading">
+          <input id ="cityinput" class="input is-large" type="text" placeholder="New York">
+        </div>
+      </div>
+        <div class="control">
+          <button class="button is-medium" id="submitsearch">Submit</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section is-small">
+      <h1 class="title">Today's Weather</h1>
+      <br>
+      <h2 class="subtitle">
+        <div id="citytoday"><strong>City</strong></div>
+      </h2>
+      <p>
+        <div>Current Conditions:</div>
+        <div>Temperature:</div>
+        <div>Humidity:</div>
+        <div>Wind Speed:</div>
+      </p>
+    </section>
+
+    <section class="section is-large">
+      <h1 class="title">A Look Ahead</h1>
+      <h2 class="subtitle">
+        5-Day Forecast Goes Here
+      </h2>
+      <div class="tile is-ancestor">
+        <div class="tile is-parent">
+          <article class="tile is-child box">
+            <p class="title" id="day1">Day One</p>
+            <p class="subtitle">
+              <div>Expected Conditions:</div>
+              <div>High Temp:</div>
+              <div>Low Temp:</div>
+              <div>Humidity:</div>
+              <div>Wind Speed:</div>
+            </p>
+          </article>
+        </div>
+        <div class="tile is-parent">
+          <article class="tile is-child box">
+            <p class="title" id="day2">Day Two</p>
+            <p class="subtitle">
+              <div>Expected Conditions:</div>
+              <div>High Temp:</div>
+              <div>Low Temp:</div>
+              <div>Humidity:</div>
+              <div>Wind Speed:</div>
+            </p>
+          </article>
+        </div>
+        <div class="tile is-parent">
+          <article class="tile is-child box">
+            <p class="title" id="day3">Day Three</p>
+            <p class="subtitle">
+              <div>Expected Conditions:</div>
+              <div>High Temp:</div>
+              <div>Low Temp:</div>
+              <div>Humidity:</div>
+              <div>Wind Speed:</div>
+            </p>
+          </article>
+        </div>
+        <div class="tile is-parent">
+          <article class="tile is-child box">
+            <p class="title" id="day4">Day Four</p>
+            <p class="subtitle">
+              <div>Expected Conditions:</div>
+              <div>High Temp:</div>
+              <div>Low Temp:</div>
+              <div>Humidity:</div>
+              <div>Wind Speed:</div>
+            </p>
+          </article>
+        </div>
+        <div class="tile is-parent">
+          <article class="tile is-child box">
+            <p class="title" id="day5">Day Five</p>
+            <p class="subtitle">
+              <div>Expected Conditions:</div>
+              <div>High Temp:</div>
+              <div>Low Temp:</div>
+              <div>Humidity:</div>
+              <div>Wind Speed:</div>
+            </p>
+          </article>
+        </div>
+      </div>
+
+    </section>
+
+
+    
+    <footer class="footer">
+      <div class="content has-text-centered">
+        <p>
+         footer goes here
+        </p>
+      </div>
+    </footer>
+
+    
+
+  </body>
+
+  </html>
