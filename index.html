@@ -10,127 +10,134 @@
 
   <body>
   
-    <section class="hero is-primary">
+    <section class="hero">
       <div class="hero-body">
         <p class="title">
           Weather Dashboard
         </p>
-        <p class="subtitle">
-          Get started by entering your city below!
-        </p>
+        <h2 id="date"></h2>
+        <br>
       </div>
     </section>
 <br>
-    <section>
-      <div class="container">
+
+<article id="weather" class="tile is-child notification is-warning">
+  
+    <article>
+      <div class="form">
         <div class="notification is-primary" id="entercity">
           Enter the name of your <strong>city</strong>.
           <div class="control">
-          <input id ="cityinput" class="input is-large" type="text" placeholder="New York">
+            <div class="has-text-centered">   
+          <input id="city-input" class="input is-primary" type="text" placeholder="Enter the name of your city">
+        </div>
         </div>
       </div>
-        <div class="control">
-          <button class="button is-medium" id="submitsearch">Submit</button>
+        <div class="form">
+          <button class="button is-medium" type='submit' id="search">Submit</button>
         </div>
       </div>
-    </section>
+    </article>
 
     <section class="section is-small" id = "currentweather">
-      <h1 class="title">Today's Weather</h1>
-      <h2 id="date"></h2>
+      <div class="has-text-centered">
+      <h1 class="title" id="city-name">Today's Weather</h1>
+
       <br>
       <h2 class="subtitle">
-        <div id="citytoday"><strong>City</strong></div>
+        <h2 id="icon"></h2>
+           <br>
       </h2>
       <p>
-        <div id="CC">Current Conditions:</div>
-        <div id="temp">Temperature:</div>
-        <div id="humidity">Humidity:</div>
-        <div id="wind">Wind Speed:</div>
+        <div id="conditions">Current Conditions</div>
+        <div id="temperature">Temperature</div>
+        <div id="tempMax">Max Temp</div>
+        <div id="tempMin">Min Temp</div>
+        <div id="humidity">Humidity</div>
+        <div id="wind">Wind Speed</div>
       </p>
+    </div>
+      <section class="section is-small">
+        <h1 class="title">A Look Ahead</h1>
+        <h2 class="subtitle">
+          5-Day Forecast Goes Here
+        </h2>
+        <div class="tile is-ancestor">
+          <div class="tile is-parent">
+            <article class="tile is-child box">
+              <p class="title" id="day1">Day One</p>
+              <p class="subtitle">
+                <div id="d1c">Expected Conditions:</div>
+                <div>High Temp:</div>
+                <div>Low Temp:</div>
+                <div>Humidity:</div>
+                <div>Wind Speed:</div>
+              </p>
+            </article>
+          </div>
+          <div class="tile is-parent">
+            <article class="tile is-child box">
+              <p class="title" id="day2">Day Two</p>
+              <p class="subtitle">
+                <div>Expected Conditions:</div>
+                <div>High Temp:</div>
+                <div>Low Temp:</div>
+                <div>Humidity:</div>
+                <div>Wind Speed:</div>
+              </p>
+            </article>
+          </div>
+          <div class="tile is-parent">
+            <article class="tile is-child box">
+              <p class="title" id="day3">Day Three</p>
+              <p class="subtitle">
+                <div>Expected Conditions:</div>
+                <div>High Temp:</div>
+                <div>Low Temp:</div>
+                <div>Humidity:</div>
+                <div>Wind Speed:</div>
+              </p>
+            </article>
+          </div>
+          <div class="tile is-parent">
+            <article class="tile is-child box">
+              <p class="title" id="day4">Day Four</p>
+              <p class="subtitle">
+                <div>Expected Conditions:</div>
+                <div>High Temp:</div>
+                <div>Low Temp:</div>
+                <div>Humidity:</div>
+                <div>Wind Speed:</div>
+              </p>
+            </article>
+          </div>
+          <div class="tile is-parent">
+            <article class="tile is-child box">
+              <p class="title" id="day5">Day Five</p>
+              <p class="subtitle">
+                <div>Expected Conditions:</div>
+                <div>High Temp:</div>
+                <div>Low Temp:</div>
+                <div>Humidity:</div>
+                <div>Wind Speed:</div>
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
     </section>
 
-    <section class="section is-small">
-      <h1 class="title">A Look Ahead</h1>
-      <h2 class="subtitle">
-        5-Day Forecast Goes Here
-      </h2>
-      <div class="tile is-ancestor">
-        <div class="tile is-parent">
-          <article class="tile is-child box">
-            <p class="title" id="day1">Day One</p>
-            <p class="subtitle">
-              <div>Expected Conditions:</div>
-              <div>High Temp:</div>
-              <div>Low Temp:</div>
-              <div>Humidity:</div>
-              <div>Wind Speed:</div>
-            </p>
-          </article>
-        </div>
-        <div class="tile is-parent">
-          <article class="tile is-child box">
-            <p class="title" id="day2">Day Two</p>
-            <p class="subtitle">
-              <div>Expected Conditions:</div>
-              <div>High Temp:</div>
-              <div>Low Temp:</div>
-              <div>Humidity:</div>
-              <div>Wind Speed:</div>
-            </p>
-          </article>
-        </div>
-        <div class="tile is-parent">
-          <article class="tile is-child box">
-            <p class="title" id="day3">Day Three</p>
-            <p class="subtitle">
-              <div>Expected Conditions:</div>
-              <div>High Temp:</div>
-              <div>Low Temp:</div>
-              <div>Humidity:</div>
-              <div>Wind Speed:</div>
-            </p>
-          </article>
-        </div>
-        <div class="tile is-parent">
-          <article class="tile is-child box">
-            <p class="title" id="day4">Day Four</p>
-            <p class="subtitle">
-              <div>Expected Conditions:</div>
-              <div>High Temp:</div>
-              <div>Low Temp:</div>
-              <div>Humidity:</div>
-              <div>Wind Speed:</div>
-            </p>
-          </article>
-        </div>
-        <div class="tile is-parent">
-          <article class="tile is-child box">
-            <p class="title" id="day5">Day Five</p>
-            <p class="subtitle">
-              <div>Expected Conditions:</div>
-              <div>High Temp:</div>
-              <div>Low Temp:</div>
-              <div>Humidity:</div>
-              <div>Wind Speed:</div>
-            </p>
-          </article>
-        </div>
-      </div>
 
-    </section>
 
 
     
     <footer class="footer">
       <div class="content has-text-centered">
-        <p></p>
+      <p>2023 Laura Sieck</p>
       </div>
 
-
       <div class="user">
-        <h2></h2>
-        
+        <h2></h2>    
     </div>
     </footer>
 
@@ -140,3 +147,5 @@
   </body>
 
   </html>
+
+
