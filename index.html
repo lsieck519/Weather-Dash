@@ -3,51 +3,53 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Weather</title>
+    <title>Weather Dashboard</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link rel="stylesheet" href="./assets/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 
   <body>
   
-    <section class="hero">
+    <section class="hero is-small">
       <div class="hero-body">
         <p class="title">
           Weather Dashboard
         </p>
         <h2 id="date"></h2>
-        <br>
       </div>
     </section>
-<br>
 
-<article id="weather" class="tile is-child notification is-warning">
+<article id="weather" class="tile is-child notification">
   
     <article>
-      <div class="form">
-        <div class="notification is-primary" id="entercity">
+
+      <div class="tile">
+        <div class="notification is-success" id="entercity">
           Enter the name of your <strong>city</strong>.
           <div class="control">
             <div class="has-text-centered">   
-          <input id="city-input" class="input is-primary" type="text" placeholder="Enter the name of your city">
+          <input id="city-input" class="input is-primary" type="text" placeholder="New York">
         </div>
-        </div>
+<br>
+        <div class="tile">
+          <button class="button is-small" type='submit' id="search">Submit</button>  
       </div>
-        <div class="form">
-          <button class="button is-medium" type='submit' id="search">Submit</button>
-        </div>
-      </div>
-    </article>
+    </div>
+  </div>
+</div>
+<br>
 
-    <section class="section is-small" id = "currentweather">
-      <div class="has-text-centered">
+    </article>
+   
+    <section class="tile is-small" id = "currentweather">
+      <div class="has-text-centered" id="maindetails">
+        <br>
       <h1 class="title" id="city-name">Today's Weather</h1>
 
-      <br>
       <h2 class="subtitle">
         <h2 id="icon"></h2>
-           <br>
       </h2>
+
       <p>
         <div id="conditions">Current Conditions</div>
         <div id="temperature">Temperature</div>
@@ -56,11 +58,13 @@
         <div id="humidity">Humidity</div>
         <div id="wind">Wind Speed</div>
       </p>
+
     </div>
-      <section class="section is-small">
+
+      <section class="section is-small" id="lookahead">
         <h1 class="title">A Look Ahead</h1>
         <h2 class="subtitle">
-          5-Day Forecast Goes Here
+          5-Day Forecast
         </h2>
         <div class="tile is-ancestor">
           <div class="tile is-parent">
@@ -68,10 +72,10 @@
               <p class="title" id="day1">Day One</p>
               <p class="subtitle">
                 <div id="d1c">Expected Conditions:</div>
-                <div>High Temp:</div>
-                <div>Low Temp:</div>
-                <div>Humidity:</div>
-                <div>Wind Speed:</div>
+                <div id="d1ht">High Temp:</div>
+                <div id="d1lt">Low Temp:</div>
+                <div id="d1h">Humidity:</div>
+                <div id="d1ws">Wind Speed:</div>
               </p>
             </article>
           </div>
@@ -127,25 +131,21 @@
       </section>
     </section>
 
+<footer class="footer">
+  <div class="has-text-centered">
+    <h2>2023 Laura Sieck</h2>
+  </div> 
+  </div>
+</footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+  <script src="./assets/script.js"></script>
+  
+</body>
+
+</html>
 
 
 
-    
-    <footer class="footer">
-      <div class="content has-text-centered">
-      <p>2023 Laura Sieck</p>
-      </div>
-
-      <div class="user">
-        <h2></h2>    
-    </div>
-    </footer>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
-
-    <script src="./assets/script.js"></script>
-  </body>
-
-  </html>
 
 

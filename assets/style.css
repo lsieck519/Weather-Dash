@@ -1,20 +1,37 @@
 body {
     background-color: whitesmoke;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 #entercity {
     font-size: 1.6em;
-    background-color: rgb(137, 195, 246);
+    background-color: rgb(155, 219, 248);
+    border-radius: 15px;
 }
 
 #date {
-    font-size: 1.5em;
+    font-size: 2em;
     color: darkslategray;
+    font-weight: bold;
+    font-style: oblique;
 }
 
 #currentweather {
-    font-size: 1.4em;
+    font-size: 1.2em;
     background-color: rgb(155, 219, 248);
+    padding:25px;
+    border-radius: 15px;
+}
+
+#weather {
+    background-color: whitesmoke;
+ 
+}
+
+#lookahead {
+    background-color: rgb(210, 241, 210);
+    border-radius: 15px;
+
 }
 
 button {
@@ -22,7 +39,9 @@ button {
 }
 
 .hero {
-    background:linear-gradient(rgb(87, 175, 247), whitesmoke); 
+    background:linear-gradient(rgb(155, 219, 248), whitesmoke); 
+    font-style: oblique;
+    font-size: 1.6em;
 }
 
 .hero-body .title {
