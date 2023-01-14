@@ -4,13 +4,13 @@ body {
 }
 
 #entercity {
-    font-size: 1.6em;
+    font-size: 2.7em;
     background-color: rgb(155, 219, 248);
     border-radius: 15px;
 }
 
 #date {
-    font-size: 2em;
+    font-size: 1em;
     color: darkslategray;
     font-weight: bold;
     font-style: oblique;
@@ -18,30 +18,27 @@ body {
 
 #currentweather {
     font-size: 1.2em;
-    background-color: rgb(155, 219, 248);
-    padding:25px;
+    background-color: rgb(100, 161, 100);
     border-radius: 15px;
 }
 
 #weather {
-    background-color: whitesmoke;
- 
+    background-color: rgb(155, 219, 248);
+}
+
+.footer {
+    background-color: rgb(155, 219, 248);
 }
 
 #lookahead {
     background-color: rgb(210, 241, 210);
     border-radius: 15px;
-
-}
-
-button {
-    margin-bottom: 3vh;
 }
 
 .hero {
     background:linear-gradient(rgb(155, 219, 248), whitesmoke); 
     font-style: oblique;
-    font-size: 1.6em;
+    font-size: 1.3em;
 }
 
 .hero-body .title {
