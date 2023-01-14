@@ -1,41 +1,74 @@
-/* body {
+ body {
     background-color: whitesmoke;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+aside {
+    margin: auto;
+    text-align: center;
+}
+
+.hero-body {
+    background-color: rgb(213, 213, 242);
+    text-align: center;
+    color:gray;
+    font-size: 2em;
+    padding: 1%;
+}
+
+#weatherdash {
+    font-style:oblique;
+    font-size: 6vw;
+    color: rgb(57, 56, 56)
 }
 
 #entercity {
-    font-size: 2.7em;
-    background-color: rgb(155, 219, 248);
-    border-radius: 15px;
+    background-color: rgb(168, 240, 168);
+    text-align: center;
+    padding:1%;
+    font-size: 1.6em;
 }
 
-#date {
-    font-size: 1em;
-    color: darkslategray;
-    font-weight: bold;
-    font-style: oblique;
+#citiesSearched {
+    background-color: rgb(234, 160, 160);
+    padding:1%;
+    font-size: 1.6em;
 }
 
-
-#weather {
-    background-color: rgb(155, 219, 248);
+#maindetails {
+    background-color: rgb(249, 249, 176);
+    margin: auto;
+    text-align: center;
+    padding:12%;
+    padding-top: 1%;
 }
 
-.footer {
-    background-color: rgb(155, 219, 248);
+#city-name {
+    font-size: 2em;
 }
 
-#lookahead {
-    background-color: rgb(210, 241, 210);
-    border-radius: 15px;
+#todaydetails {
+    font-size: 1.9em;
 }
 
-.hero {
-    background:linear-gradient(rgb(155, 219, 248), whitesmoke); 
-    font-style: oblique;
+#conditions, #temperature, #tempMax, #tempMin, #humidity, #wind {
+    font-size: 1.5em;
+}
+
+#wind {
+    margin-bottom: 30px;
+}
+#alookahead {
+    background-color: rgb(249, 167, 249);
     font-size: 1.3em;
 }
 
-.hero-body .title {
-    color: white;
-    font-size: 4em;
-} */
+#alookahead {
+    background-color: rgb(191, 244, 169);
+    padding: 40px;
+}
+
+footer {
+    text-align: center;
+    margin: .5%;
+}

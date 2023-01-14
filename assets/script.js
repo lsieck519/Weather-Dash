@@ -1,16 +1,71 @@
-//WEATHER RELATED JS//
+$(document).ready(function () {
+
+//getting value for today's date and rendering the value in the html 
+let today = new moment().format('MMMM D, YYYY')
+let date = document.querySelector("#date");
+date.textContent = today
+
+//APIkey to call openweathermap API
+//will be used in two functions in this code so setting as a global variable
 
 var APIkey = '2e64565d10dd2c4f4e922c655105f38b'
 
 let city;
 let cities = []
 
-function getCity() {
-  city = $("#city-input").val();
-  if (city) {saveToLocalStorage();
-  } else {return}
+// initializing empty array in order to store results of for loop; 
+// only looping to get next five days, no more
+
+let days = [];
+let daysRequired = 5 
+for (let count = 1; count <= daysRequired; count++) {
+  days.push(moment().add(count, 'days').format('MMM Do'))
 }
-getCity()
+console.log(days)
+
+//each day variable corresponds with that day's position in the days array, index starting at zero
+//also setting the values of the corresponding elements (selected by ID) for each of the five days
+
+day1 = days[0]
+let d1 = document.querySelector('#day1');
+d1.textContent = day1
+
+day2 = days[1]
+let d2 = document.querySelector('#day2');
+d2.textContent = day2
+
+day3 = days[2]
+let d3 = document.querySelector('#day3');
+d3.textContent = day3
+
+day4 = days[3]
+let d4 = document.querySelector('#day4');
+d4.textContent = day4
+
+day5 = days[4]
+let d5 = document.querySelector('#day5');
+d5.textContent = day5
+
+
+ // load recent search from Storage
+// load recent cities from Storage
+// save searched city and cities to local Storage
+// retrieve user input for city search
+// show recent searches on page
+
+// event listener for search button 
+// event listener for save search
+// event listener to remove from saved search
+
+// function to search current weather
+
+function loadRecent() {
+  const storedCity = localStorage.getItem("lastSearch");
+    if ("lastSearch"){
+      city = storedCity; search();
+    } else; {return}
+  }
+loadRecent()
 
 function saveToLocalStorage() {
   localStorage.setItem("lastSearch", city);
@@ -19,20 +74,18 @@ function saveToLocalStorage() {
   console.log(cities)
 }
 
-function loadRecentCity() {
-  const storedCity = localStorage.getItem("lastSearch");
-    if ("lastSearch"){
-      city = storedCity; search();
-    } else; {return}
-  }
-loadRecentCity()
-  
+function getCity() {
+  city = $("#city-input").val();
+  if (city) {saveToLocalStorage();
+  } else {return}
+}
+getCity()
 
 $("#search").on("click",(x) => {
   x.preventDefault();
   getCity();
   search();
-  future();
+  // future();
   $("#city-input").val("");
 })
 
@@ -40,27 +93,27 @@ $("#search").on("click",(x) => {
 $("#clr-btn").on("click",(x) => {
   x.preventDefault();
   localStorage.removeItem("searchedCities"); 
-  loadRecentCity()
+  loadRecent()
 })
 
+// need to get lat and lon from weatherAPI in order to use in 5-day forecast
 
 
-let conditions;
-let temperature;
-let tempMax;
-let tempMin;
-let icon;
-let humidity; 
-let cityWind; 
-let cityName;
 
-// need to get lat and lon from weatherAPI in order to use in 5-day
-let coordLat;
-let coordLon;
-
+//function to search for today's weather
 function search() {
   // API Documentation https://openweathermap.org/current
     let weatherAPI = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${APIkey}`;
+    let conditions;
+    let temperature;
+    let tempMax;
+    let tempMin;
+    let icon;
+    let humidity; 
+    let cityWind; 
+    let cityName;
+    let coordLat;
+    let coordLon;
     
     fetch(weatherAPI)
     
@@ -114,80 +167,55 @@ function search() {
 
       coordLon = data.coord.lon;
       console.log(coordLon)
-   })     
-  
-}
 
-let today = new moment().format('MMMM D, YYYY')
-let date = document.querySelector("#date");
-date.textContent = today
-
-let days = [];
-let daysRequired = 5
-for (let i = 1; i <= daysRequired; i++) {
-  days.push( moment().add(i, 'days').format('MMM Do' ) )
-}
-console.log(days)
-
-day1 = days[0]
-let d1 = document.querySelector('#day1');
-d1.textContent = day1
-
-day2 = days[1]
-let d2 = document.querySelector('#day2');
-d2.textContent = day2
-
-day3 = days[2]
-let d3 = document.querySelector('#day3');
-d3.textContent = day3
-
-day4 = days[3]
-let d4 = document.querySelector('#day4');
-d4.textContent = day4
-
-day5 = days[4]
-let d5 = document.querySelector('#day5');
-d5.textContent = day5
-
-let day1icon;
-let day1cond;
-let day1ht;
-let day1lt;
-let day1hum;
-let day1win;
-
-let day2icon;
-let day2cond;
-let day2ht;
-let day2lt;
-let day2hum;
-let day2win;
-
-let day3icon;
-let day3cond;
-let day3ht;
-let day3lt;
-let day3hum;
-let day3win;
-
-let day4icon;
-let day4cond;
-let day4ht;
-let day4lt;
-let day4hum;
-let day4win;
-
-let day5icon;
-let day5cond;
-let day5ht;
-let day5lt;
-let day5hum;
-let day5win;
-
-function future(){
-    // API documentation: https://openweathermap.org/api/one-call-3
-    let fiveDayURL = `https://api.openweathermap.org/data/3.0/onecall?lat=${coordLat}&lon=${coordLon}&cnt=5&units=imperial&appid=2e64565d10dd2c4f4e922c655105f38b`
+      //calling five day forecast using lat and lon
+      future(coordLat, coordLon);
+  })
     
+}
+//specifying parameters needed for this function -- it will not work until we get lat and lon from fetching the previous API results
+function future(coordLat, coordLon){
+
+    // API documentation: https://openweathermap.org/api/one-call-3
+    let fiveDayURL = `https://api.openweathermap.org/data/3.0/onecall?lat=${coordLat}&lon=${coordLon}&cnt=5&units=imperial&appid=${APIkey}`
+    
+    //initializing variables for each day and each day's weather conditions, icon, high temp, low temp, humidity, and wind speed
+    //all values will be assigned by calling function 
+      let day1icon;
+      let day1cond;
+      let day1ht;
+      let day1lt;
+      let day1hum;
+      let day1win;
+      
+      let day2icon;
+      let day2cond;
+      let day2ht;
+      let day2lt;
+      let day2hum;
+      let day2win;
+      
+      let day3icon;
+      let day3cond;
+      let day3ht;
+      let day3lt;
+      let day3hum;
+      let day3win;
+      
+      let day4icon;
+      let day4cond;
+      let day4ht;
+      let day4lt;
+      let day4hum;
+      let day4win;
+      
+      let day5icon;
+      let day5cond;
+      let day5ht;
+      let day5lt;
+      let day5hum;
+      let day5win;
+
     fetch(fiveDayURL)
 
     .then(function (response){
@@ -196,7 +224,7 @@ function future(){
       .then(function (data) {
         console.log(data);
 
-        // day 1 of 5
+        //day 1 of 5
         day1icon = data.daily[1].weather[0].icon;
         console.log(day1icon)
         $("#d1i").html(`<img src="http://openweathermap.org/img/wn/${day1icon}@2x.png">`);
@@ -226,8 +254,7 @@ function future(){
         let d1ws = document.querySelector("#d1ws")
         d1ws.textContent = "Wind: " + day1win + " mph"
 
-        // day 2 of 5
-
+        //day 2 of 5
         day2icon = data.daily[2].weather[0].icon;
         console.log(day2icon)
         $("#d2i").html(`<img src="http://openweathermap.org/img/wn/${day2icon}@2x.png">`);
@@ -259,7 +286,6 @@ function future(){
 
 
         // day 3 of 5
-
         day3icon = data.daily[3].weather[0].icon;
         console.log(day3icon)
         $("#d3i").html(`<img src="http://openweathermap.org/img/wn/${day3icon}@2x.png">`);
@@ -351,10 +377,4 @@ function future(){
 
   })
 
-  
-};
-  
-;
-  
-
-
+}})
