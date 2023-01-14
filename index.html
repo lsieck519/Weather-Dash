@@ -1,4 +1,173 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather Dashboard</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="./assets/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+  <div id="page">
+
+    <header>
+
+      <div class="hero-body">
+        <p class="title">
+          Weather Dashboard
+        </p>
+        <h2 id="date"></h2>
+      </div>  
+
+      <nav>
+
+        <div id="entercity">
+          Enter the name of your <strong>city</strong>.
+        
+          <input id="city-input" type="text" placeholder="New York">
+          <br>
+
+        <button type='submit' id="search">Submit</button>  
+
+        </div>
+
+      </nav>
+
+    </header>
+
+    <br>
+   
+      <aside>
+          <div id="citiesSearched">
+            Your Recent Searches:
+            <ul>
+              <li>
+                <h2>search1</h2>
+              </li>
+              <li>
+                <h2>search2</h2>
+              </li>
+              <li>
+                <h2>search3</h2>
+              </li>
+              <li>
+                <h2>search4</h2>
+              </li>
+              <li>
+                <h2>search5</h2>
+              </li>
+            </ul>
+            <button id="clr-btn" class="button is-primary">Clear Results</button>
+          </div> 
+      </aside>
+    
+
+
+      <section id="maindetails">
+
+          <h1 id="city-name">Today's Weather</h1>
+          <h2 id="icon"></h2>
+       
+          <p>
+            <div id="conditions">Current Conditions</div>
+            <div id="temperature">Temperature</div>
+            <div id="tempMax">Max Temp</div>
+            <div id="tempMin">Min Temp</div>
+            <div id="humidity">Humidity</div>
+            <div id="wind">Wind Speed</div>
+          </p>
+
+      </section>
+
+      <div id="5dayfor">
+
+      <article>
+
+          <h1>A Look Ahead</h1>
+          <h2>5-Day Forecast</h2>
+
+                <p>
+                  <div id="day1">Day One</div>
+                  <div id="d1i">Icon</div>
+                  <div id="d1c">Expected Conditions:</div>
+                  <div id="d1ht">High Temp:</div>
+                  <div id="d1lt">Low Temp:</div>
+                  <div id="d1h">Humidity:</div>
+                  <div id="d1ws">Wind Speed:</div>
+                </p>
+
+                <p>
+                  <div id="day2">Day Two</div>
+                  <div id="d2i">Icon</div>
+                  <div id="d2c">Expected Conditions:</div>
+                  <div id="d2ht">High Temp:</div>
+                  <div id="d2lt">Low Temp:</div>
+                  <div id="d2h">Humidity:</div>
+                  <div id="d2ws">Wind Speed:</div>
+                </p>
+                
+                <p>
+                  <h1 id="day3">Day Three</h1>
+                  <div id="d3i">Icon</div>
+                  <div id="d3c">Expected Conditions:</div>
+                  <div id="d3ht">High Temp:</div>
+                  <div id="d3lt">Low Temp:</div>
+                  <div id="d3h">Humidity:</div>
+                  <div id="d3ws">Wind Speed:</div>
+                </p>
+
+
+                <p>
+                  <h1 id="day4">Day Four</h1>
+                  <div id="d4i">Icon</div>
+                  <div id="d4c">Expected Conditions:</div>
+                  <div id="d4ht">High Temp:</div>
+                  <div id="d4lt">Low Temp:</div>
+                  <div id="d4h">Humidity:</div>
+                  <div id="d4ws">Wind Speed:</div>
+                </p>
+
+                <p>
+                  <h1 id="day5">Day Five</h1>
+                  <div id="d5i">Icon</div>
+                  <div id="d5c">Expected Conditions:</div>
+                  <div id="d5ht">High Temp:</div>
+                  <div id="d5lt">Low Temp:</div>
+                  <div id="d5h">Humidity:</div>
+                  <div id="d5ws">Wind Speed:</div>
+                </p>
+          
+    </article>
+  
+ 
+    <footer>
+      <h2>2023 Laura Sieck</h2>
+    </footer>
+  
+  </div>
+
+</div>
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <script src="./assets/script.js"></script>
+    
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -153,4 +322,4 @@
 
 
 
-
+ -->

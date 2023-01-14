@@ -3,6 +3,7 @@
 var APIkey = '2e64565d10dd2c4f4e922c655105f38b'
 
 let city;
+let cities = []
 
 function getCity() {
   city = $("#city-input").val();
@@ -13,6 +14,9 @@ getCity()
 
 function saveToLocalStorage() {
   localStorage.setItem("lastSearch", city);
+  cities.push(city)
+  localStorage.setItem("searchedCities", JSON.stringify(cities));
+  console.log(cities)
 }
 
 function loadRecentCity() {
@@ -31,7 +35,15 @@ $("#search").on("click",(x) => {
   future();
   $("#city-input").val("");
 })
-;
+
+
+$("#clr-btn").on("click",(x) => {
+  x.preventDefault();
+  localStorage.removeItem("searchedCities"); 
+  loadRecentCity()
+})
+
+
 
 let conditions;
 let temperature;

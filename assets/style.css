@@ -1,6 +1,5 @@
-body {
+/* body {
     background-color: whitesmoke;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 #entercity {
@@ -16,11 +15,6 @@ body {
     font-style: oblique;
 }
 
-#currentweather {
-    font-size: 1.2em;
-    background-color: rgb(100, 161, 100);
-    border-radius: 15px;
-}
 
 #weather {
     background-color: rgb(155, 219, 248);
@@ -44,4 +38,4 @@ body {
 .hero-body .title {
     color: white;
     font-size: 4em;
-}
+} */
