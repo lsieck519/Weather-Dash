@@ -6,54 +6,48 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Weather Dashboard</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script> 
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous"> 
   <link rel="stylesheet" href="./assets/style.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  
 </head>
 
 <body>
-
+  
   <div id="page">
 
     <header>
-      <div class="hero-body">
-        <p class="title" id="weatherdash">
-          Weather Dashboard
-        </p>
-        <h2 id="date"></h2>
-      </div>  
-    
-      <nav>
-
-        <div id="entercity">
-          Enter the name of your <strong>city</strong>.
-
-          <input id="city-input" type="text" placeholder="">
-          <br>
-
-        <button type='submit' id="search">Submit</button>  
-
-        </div>
-
-      </nav>
-
-     
-      <aside>
-        <div id="citiesSearched">
-          Your Recent Searches:
-          <ul>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-          </ul>
-          <button id="clr-btn" class="button is-primary">Clear Saved</button>
-        </div> 
-    </aside>
+    <div class="hero-body">
+      <p class="title" id="weatherdash">
+        Weather Dashboard
+      </p>
+      <h2 id="date"></h2>
+      </div>
+    </div>  
     </header>
 
-      <section id="maindetails">
+    <div class="container-fluid">
+      <div class="row">
 
+
+        <div class="col-sm-4">
+          <div id="entercity">
+          Enter the name of a <strong>city</strong>:
+             <div class="input-group mb-3">
+              <input class="input is-normal" id="city-input" type="text" placeholder="">
+                <div class="input-group-append">
+            <button type='submit' class="button is-info" id="search">Search</button>  
+                </div>
+              </div>
+             </div>
+           </div>
+    
+       
+      <div class="col-sm-8">
+        <div class="row ml-2">
+          <div class="col-sm-12">
+
+      <section id="maindetails">
           <h1 id="city-name">Today's Weather</h1>
           <h2 id="icon"></h2>
        
@@ -65,108 +59,91 @@
             <div id="humidity">Humidity</div>
             <div id="wind">Wind Speed</div>
           </p>
-
-
-      <div id="5dayfor" class="portfolio-section" id="portfolio">
-
-        <article>
-          <div id="alookahead">
-           
-            <h1>A Look Ahead</h1>
-
-            <div class="tile is-ancestor" id="fiveresults">
-
-
-              <div class="tile is-parent">
-                <article class="tile is-child box">
-                
-                <h1 id="day1">Day One</h1>
-                <div id="d1i">Icon</div>
-                <div id="d1c">Expected Conditions:</div>
-                <div id="d1ht">High Temp:</div>
-                <div id="d1lt">Low Temp:</div>
-                <div id="d1h">Humidity:</div>
-                <div id="d1ws">Wind Speed:</div>
-                 
-                </article>
-            </div>
-
-            <div class="tile is-parent">
-              <article class="tile is-child box">
-                
-                <h1 id="day2">Day Two</h1>
-                <div id="d2i">Icon</div>
-                <div id="d2c">Expected Conditions:</div>
-                <div id="d2ht">High Temp:</div>
-                <div id="d2lt">Low Temp:</div>
-                <div id="d2h">Humidity:</div>
-                <div id="d2ws">Wind Speed:</div>
-               
-              </article>
-            </div>
-              
-            <div class="tile is-parent">
-              <article class="tile is-child box">
-               
-                <h1 id="day3">Day Three</h1>
-                <div id="d3i">Icon</div>
-                <div id="d3c">Expected Conditions:</div>
-                <div id="d3ht">High Temp:</div>
-                <div id="d3lt">Low Temp:</div>
-                <div id="d3h">Humidity:</div>
-                <div id="d3ws">Wind Speed:</div>
-                
-              </article>
-              </div>
-
-              <div class="tile is-parent">
-                <article class="tile is-child box">
-              
-                <h1 id="day4">Day Four</h1>
-                <div id="d4i">Icon</div>
-                <div id="d4c">Expected Conditions:</div>
-                <div id="d4ht">High Temp:</div>
-                <div id="d4lt">Low Temp:</div>
-                <div id="d4h">Humidity:</div>
-                <div id="d4ws">Wind Speed:</div>
-              
-                </article>
-              </div>
-
-              <div class="tile is-parent">
-                <article class="tile is-child box">
-                
-                <h1 id="day5">Day Five</h1>
-                <div id="d5i">Icon</div>
-                <div id="d5c">Expected Conditions:</div>
-                <div id="d5ht">High Temp:</div>
-                <div id="d5lt">Low Temp:</div>
-                <div id="d5h">Humidity:</div>
-                <div id="d5ws">Wind Speed:</div>
-               
-                </article>
-              </div>
-
             </div>
           </div>
-  
-          
+ 
+   <div class="col-sm-12">
+      <div id="5dayfor">
+         <div id="alookahead">
+           
+            <h1 id="alh">A Look Ahead</h1>
+            <div class="row text-light">
+            <div class="tile is-ancestor" id="fiveresults">
 
+            <div class="tile is-parent">
+              <article class="tile is-child box">
+              <h2 id="day1">Day One</h2>
+              <div id="d1i">Icon</div>
+              <div id="d1c">Expected Conditions:</div>
+              <div id="d1ht">High Temp:</div>
+              <div id="d1lt">Low Temp:</div>
+              <div id="d1h">Humidity:</div>
+              <div id="d1ws">Wind Speed:</div>
+            </article>
+            </div>
+
+            <div class="tile is-parent">
+              <article class="tile is-child box">
+              <h2 id="day2">Day Two</h2>
+              <div id="d2i">Icon</div>
+              <div id="d2c">Expected Conditions:</div>
+              <div id="d2ht">High Temp:</div>
+              <div id="d2lt">Low Temp:</div>
+              <div id="d2h">Humidity:</div>
+              <div id="d2ws">Wind Speed:</div>
+              </article>
+            </div>
+              
+            <div class="tile is-parent">
+              <article class="tile is-child box">
+              <h2 id="day3">Day Three</h2>
+              <div id="d3i">Icon</div>
+              <div id="d3c">Expected Conditions:</div>
+              <div id="d3ht">High Temp:</div>
+              <div id="d3lt">Low Temp:</div>
+              <div id="d3h">Humidity:</div>
+              <div id="d3ws">Wind Speed:</div>
+              </article>
+            </div>
+
+            <div class="tile is-parent">
+              <article class="tile is-child box">
+              <h2 id="day4">Day Four</h2>
+              <div id="d4i">Icon</div>
+              <div id="d4c">Expected Conditions:</div>
+              <div id="d4ht">High Temp:</div>
+              <div id="d4lt">Low Temp:</div>
+              <div id="d4h">Humidity:</div>
+              <div id="d4ws">Wind Speed:</div>
+              </article>
+            </div>
+
+            <div class="tile is-parent">
+              <article class="tile is-child box">
+              <h2 id="day5">Day Five</h2>
+              <div id="d5i">Icon</div>
+              <div id="d5c">Expected Conditions:</div>
+              <div id="d5ht">High Temp:</div>
+              <div id="d5lt">Low Temp:</div>
+              <div id="d5h">Humidity:</div>
+              <div id="d5ws">Wind Speed:</div>
+              </article>
+            </div>
+
+          </div>
+        </div>
       </section>
 
-          
-    </article>
-  
- 
-    <footer>
-      <h2>2023 Laura Sieck</h2>
-    </footer>
-  
   </div>
-
 </div>
-  
+</div>
+</div>
+</div>
+</div>
+</div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     <script src="./assets/script.js"></script>
     
 </body>

@@ -3,7 +3,7 @@ $(document).ready(function () {
 //getting value for today's date and rendering the value in the html 
 let today = new moment().format('MMMM D, YYYY')
 let date = document.querySelector("#date");
-date.textContent = today
+date.textContent = "☼  " + today + "  ☽"
 
 //APIkey to call openweathermap API
 //will be used in two functions in this code so setting as a global variable
@@ -47,18 +47,7 @@ let d5 = document.querySelector('#day5');
 d5.textContent = day5
 
 
- // load recent search from Storage
-// load recent cities from Storage
-// save searched city and cities to local Storage
-// retrieve user input for city search
-// show recent searches on page
-
-// event listener for search button 
-// event listener for save search
-// event listener to remove from saved search
-
-// function to search current weather
-
+// load recent search 
 function loadRecent() {
   const storedCity = localStorage.getItem("lastSearch");
     if ("lastSearch"){
@@ -67,6 +56,15 @@ function loadRecent() {
   }
 loadRecent()
 
+
+
+// render recently searched cities to page
+
+// event handler for recently searched cities in table
+
+// clear searches button
+
+// save searched city and cities to local Storage
 function saveToLocalStorage() {
   localStorage.setItem("lastSearch", city);
   cities.push(city)
@@ -74,6 +72,7 @@ function saveToLocalStorage() {
   console.log(cities)
 }
 
+// retrieve user input for city search
 function getCity() {
   city = $("#city-input").val();
   if (city) {saveToLocalStorage();
@@ -81,23 +80,15 @@ function getCity() {
 }
 getCity()
 
+// event listener for search button 
 $("#search").on("click",(x) => {
   x.preventDefault();
   getCity();
   search();
+  listCities()
   // future();
   $("#city-input").val("");
 })
-
-
-$("#clr-btn").on("click",(x) => {
-  x.preventDefault();
-  localStorage.removeItem("searchedCities"); 
-  loadRecent()
-})
-
-// need to get lat and lon from weatherAPI in order to use in 5-day forecast
-
 
 
 //function to search for today's weather
@@ -173,14 +164,14 @@ function search() {
   })
     
 }
-//specifying parameters needed for this function -- it will not work until we get lat and lon from fetching the previous API results
+//specifying parameters needed for this function -- it will not work until we get lat and lon from the previous API results
 function future(coordLat, coordLon){
 
     // API documentation: https://openweathermap.org/api/one-call-3
     let fiveDayURL = `https://api.openweathermap.org/data/3.0/onecall?lat=${coordLat}&lon=${coordLon}&cnt=5&units=imperial&appid=${APIkey}`
     
     //initializing variables for each day and each day's weather conditions, icon, high temp, low temp, humidity, and wind speed
-    //all values will be assigned by calling function 
+    //all values will be assigned using the api response data 
       let day1icon;
       let day1cond;
       let day1ht;

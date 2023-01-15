@@ -32,8 +32,12 @@ GIVEN a weather dashboard with form inputs
 
 ## Credit
 
-API provided by OpenWeather
+APIs provided by OpenWeather
 - https://openweathermap.org/
 
-CSS Framework: Bulma 
+CSS Frameworks: Bulma and Bootstrap
 - https://bulma.io/ 
+- https://getbootstrap.com/
+
+Symbols around date
+- https://coolsymbol.com/
