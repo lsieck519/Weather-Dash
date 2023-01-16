@@ -1,26 +1,30 @@
-*{
-    box-sizing: border-box;
-} 
-  
 body {
     font-family:Verdana, Geneva, Tahoma, sans-serif;
+    background-color: white;
 } 
+
+#icon {
+    background: linear-gradient(to right, white, rgb(182, 204, 247), white) ;
+}
 
 #city-input {
     width: 75%;
-    margin-left: 5%;
+    margin-left: 2%;  
 }
 
 #search {
     padding: 25%;
+}
 
+#history:hover {
+    cursor: pointer;
 }
 
 .hero-body {
     background: linear-gradient(to right, rgb(182, 204, 247), rgb(109, 152, 244));
     text-align: center;
     color:white;
-    font-size: 2.3em;
+    font-size: 2.9em;
     padding: 1%;
 }
 
@@ -39,7 +43,6 @@ body {
     margin: auto;
     text-align: center;
     padding-top: 5%;
-   
 }
 
 #city-name {
@@ -48,11 +51,23 @@ body {
 }
 
 #alh {
-    font-size: 1.6em;
+    font-size: 2.1em;
 }
 
-#alookahead {
+#fiveresults {
+    text-align: center;
     font-size: 1em;
-    padding: 4px;
-    margin: 1px;
+}
+
+#day1tile, #day2tile, #day3tile, #day4tile, #day5tile  {
+    background-color: rgb(182, 204, 247);
+}
+
+#searchdiv {
+    border-right: 5px dotted;
+    border-color: gray;
+}
+
+#conditions, #temperature, #tempMax, #tempMin, #humidity, #wind {
+    font-size: 1.4em;
 }

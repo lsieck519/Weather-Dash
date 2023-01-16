@@ -11,6 +11,7 @@ SO THAT I can plan a trip accordingly
 ## Acceptance Criteria
 
 GIVEN a weather dashboard with form inputs
+
 - WHEN I search for a city
     - THEN I am presented with current and future conditions for that city and that city is added to the search history
 
@@ -39,5 +40,3 @@ CSS Frameworks: Bulma and Bootstrap
 - https://bulma.io/ 
 - https://getbootstrap.com/
 
-Symbols around date
-- https://coolsymbol.com/

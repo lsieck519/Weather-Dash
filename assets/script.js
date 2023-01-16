@@ -1,21 +1,18 @@
 $(document).ready(function () {
 
-//getting value for today's date and rendering the value in the html 
-let today = new moment().format('MMMM D, YYYY')
-let date = document.querySelector("#date");
-date.textContent = "☼  " + today + "  ☽"
-
 //APIkey to call openweathermap API
-//will be used in two functions in this code so setting as a global variable
-
 var APIkey = '2e64565d10dd2c4f4e922c655105f38b'
 
-let city;
-let cities = []
+//getting value for today's date and rendering the value in the header
+let today = new moment().format('MMMM D, YYYY')
+let date = document.querySelector("#date");
+date.textContent = today 
+
+
+// For the Five Day Forecast:
 
 // initializing empty array in order to store results of for loop; 
 // only looping to get next five days, no more
-
 let days = [];
 let daysRequired = 5 
 for (let count = 1; count <= daysRequired; count++) {
@@ -25,7 +22,6 @@ console.log(days)
 
 //each day variable corresponds with that day's position in the days array, index starting at zero
 //also setting the values of the corresponding elements (selected by ID) for each of the five days
-
 day1 = days[0]
 let d1 = document.querySelector('#day1');
 d1.textContent = day1
@@ -47,51 +43,107 @@ let d5 = document.querySelector('#day5');
 d5.textContent = day5
 
 
-// load recent search 
+// For weather search by city name:
+
+// global variables
+let city;
+let searchedcities = []
+
+
+// the purpose of this function is to go ahead and load the last searched city IF there is a value for the lastSearch key in local storage
+// then we will call search function using that value as the value for the variable city 
 function loadRecent() {
-  const storedCity = localStorage.getItem("lastSearch");
+  let storedCity = localStorage.getItem("lastSearch");
     if ("lastSearch"){
-      city = storedCity; search();
-    } else; {return}
+      city = storedCity; 
+      search();
+    } else {return};
   }
 loadRecent()
 
 
-
-// render recently searched cities to page
-
-// event handler for recently searched cities in table
-
-// clear searches button
-
-// save searched city and cities to local Storage
-function saveToLocalStorage() {
-  localStorage.setItem("lastSearch", city);
-  cities.push(city)
-  localStorage.setItem("searchedCities", JSON.stringify(cities));
-  console.log(cities)
+// if there are any items in the searchedCities array, they will be rendered to the page
+// if there weren't any values for searchedCities, there is nothing to prepend 
+// using prepend to add each new item to the top of the list rather than at the bottom
+function listHistory() {
+  let recentCities = JSON.parse(localStorage.getItem("searchedCities"));
+  if (recentCities) {
+      searchedcities = recentCities;
+  } else {
+      searchedcities = [];
+  }
+  $("#history").text(""); 
+  searchedcities.forEach((city) => {
+  $("#history").prepend("<tr><td>" + city + "</td></tr>");
+});
 }
+listHistory()
 
-// retrieve user input for city search
-function getCity() {
-  city = $("#city-input").val();
-  if (city) {saveToLocalStorage();
-  } else {return}
-}
-getCity()
 
 // event listener for search button 
-$("#search").on("click",(x) => {
-  x.preventDefault();
+// when the search button (id="search" in html) is clicked, several functions will be called
+// these functions do the work of getting the city input, using that value in the search function, 
+// as well as saving that value to search history and adding it to the recent searches list 
+let clickSearch = document.querySelector("#search")
+clickSearch.addEventListener('click', (event) => {
+  event.preventDefault();
   getCity();
   search();
-  listCities()
-  // future();
-  $("#city-input").val("");
-})
+  saveHistory();
+  listHistory();
+}
+)
 
 
-//function to search for today's weather
+// retrieve user input for city search, using toUpperCase() to avoid duplicate cities caused by variances in capitalization
+// the value for the variable city will be whatever the value of the input is after it is uppercased 
+// the input we are referring to is specified by the #city-input id from html 
+// if there isn't any input when getCity() is called (when search button is clicked), there will be an alert 
+function getCity() {
+  city = $("#city-input").val().toUpperCase();
+  if (city && searchedcities.includes(city) !== true) {
+    saveHistory();
+    return city;
+  } else if (!city) {
+    alert("Please enter a city name");
+  }
+}
+
+
+// if it is true that a city is NOT already in the local storage, it will be saved 
+// we don't want to save duplicates bc we dont want duplicates in the recent searches list on the page 
+function saveHistory() {
+  if (searchedcities.includes(city) !== true){
+  localStorage.setItem("lastSearch", city);
+  searchedcities.push(city)
+  localStorage.setItem("searchedCities", JSON.stringify(searchedcities));
+  console.log(searchedcities)}
+  else {return}
+}
+
+// event handler for recently searched cities in recent searches (history) table
+// the text value of that row will be assigned to listedCity 
+// and listedCity is used as the value for city when search() is called
+$(document).on("click", "tr", (event) => {
+  event.preventDefault();
+  let listedCity = $(event.target).text();
+  city = listedCity;
+  search();
+}
+)
+
+// event handler for clear button; we are removing the entire searchedCities key and all of its values from localstorage
+// and by calling the next two functions, we are essentially refreshing the page to display no results for recent searches
+let clear = document.querySelector('#clear')
+clear.addEventListener('click', () => {
+  localStorage.removeItem("searchedCities"); 
+  listHistory();
+}
+)
+
+
+// function to search for today's weather
+// city and APIkey in url are both values from global variables
 function search() {
   // API Documentation https://openweathermap.org/current
     let weatherAPI = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${APIkey}`;
@@ -153,6 +205,7 @@ function search() {
       let wind = document.querySelector("#wind")
       wind.textContent = "Wind Speed: " + cityWind + " MPH"
 
+      //we will not add coordLat and coordLon to the webpage but we need them for the next api call 
       coordLat = data.coord.lat;
       console.log(coordLat)
 
@@ -238,7 +291,7 @@ function future(coordLat, coordLon){
         day1hum = data.daily[1].humidity;
         console.log(day1hum)
         let d1h = document.querySelector("#d1h")
-        d1h.textContent = "Humidity: " + day1hum
+        d1h.textContent = "Humidity: " + day1hum + "%"
 
         day1win = data.daily[1].wind_speed;
         console.log(day1win)
@@ -268,7 +321,7 @@ function future(coordLat, coordLon){
         day2hum = data.daily[2].humidity;
         console.log(day2hum)
         let d2h = document.querySelector("#d2h")
-        d2h.textContent = "Humidity: " + day2hum
+        d2h.textContent = "Humidity: " + day2hum + "%"
 
         day2win = data.daily[2].wind_speed;
         console.log(day2win)
@@ -299,7 +352,7 @@ function future(coordLat, coordLon){
         day3hum = data.daily[3].humidity;
         console.log(day3hum)
         let d3h = document.querySelector("#d3h")
-        d3h.textContent = "Humidity: " + day3hum
+        d3h.textContent = "Humidity: " + day3hum + "%"
 
         day3win = data.daily[3].wind_speed;
         console.log(day3win)
@@ -329,7 +382,7 @@ function future(coordLat, coordLon){
         day4hum = data.daily[4].humidity;
         console.log(day4hum)
         let d4h = document.querySelector("#d4h")
-        d4h.textContent = "Humidity: " + day4hum
+        d4h.textContent = "Humidity: " + day4hum + "%"
 
         day4win = data.daily[4].wind_speed;
         console.log(day4win)
@@ -359,7 +412,7 @@ function future(coordLat, coordLon){
         day5hum = data.daily[5].humidity;
         console.log(day5hum)
         let d5h = document.querySelector("#d5h")
-        d5h.textContent = "Humidity: " + day5hum
+        d5h.textContent = "Humidity: " + day5hum + "%"
 
         day5win = data.daily[5].wind_speed;
         console.log(day5win)

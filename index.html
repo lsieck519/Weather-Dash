@@ -30,20 +30,25 @@
       <div class="row">
 
 
-        <div class="col-sm-4">
+        <div id="searchdiv" class="col-sm-3">
           <div id="entercity">
           Enter the name of a <strong>city</strong>:
              <div class="input-group mb-3">
               <input class="input is-normal" id="city-input" type="text" placeholder="">
                 <div class="input-group-append">
-            <button type='submit' class="button is-info" id="search">Search</button>  
+            <button type='submit' class="button is-info" id="search">Search</button> 
                 </div>
-              </div>
+                 
+              </div id="pending">
+              <p>Recent Searches</p>
+              <table id="history" class="table">
+                <tr></tr>
+                </table>
+              <button class=button id="clear">Clear</button>
              </div>
            </div>
-    
        
-      <div class="col-sm-8">
+      <div class="col-sm-9">
         <div class="row ml-2">
           <div class="col-sm-12">
 
@@ -67,11 +72,11 @@
          <div id="alookahead">
            
             <h1 id="alh">A Look Ahead</h1>
-            <div class="row text-light">
+            <div class="row">
             <div class="tile is-ancestor" id="fiveresults">
 
             <div class="tile is-parent">
-              <article class="tile is-child box">
+              <article id="day1tile" class="tile is-child box">
               <h2 id="day1">Day One</h2>
               <div id="d1i">Icon</div>
               <div id="d1c">Expected Conditions:</div>
@@ -83,7 +88,7 @@
             </div>
 
             <div class="tile is-parent">
-              <article class="tile is-child box">
+              <article id="day2tile" class="tile is-child box">
               <h2 id="day2">Day Two</h2>
               <div id="d2i">Icon</div>
               <div id="d2c">Expected Conditions:</div>
@@ -95,7 +100,7 @@
             </div>
               
             <div class="tile is-parent">
-              <article class="tile is-child box">
+              <article id="day3tile" class="tile is-child box">
               <h2 id="day3">Day Three</h2>
               <div id="d3i">Icon</div>
               <div id="d3c">Expected Conditions:</div>
@@ -107,7 +112,7 @@
             </div>
 
             <div class="tile is-parent">
-              <article class="tile is-child box">
+              <article id="day4tile" class="tile is-child box">
               <h2 id="day4">Day Four</h2>
               <div id="d4i">Icon</div>
               <div id="d4c">Expected Conditions:</div>
@@ -119,7 +124,7 @@
             </div>
 
             <div class="tile is-parent">
-              <article class="tile is-child box">
+              <article id="day5tile" class="tile is-child box">
               <h2 id="day5">Day Five</h2>
               <div id="d5i">Icon</div>
               <div id="d5c">Expected Conditions:</div>
