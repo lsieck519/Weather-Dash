@@ -27,9 +27,11 @@ GIVEN a weather dashboard with form inputs
 
 ## Preview
 
+<img width="1334" alt="Screen Shot 2023-01-17 at 9 58 02 AM" src="https://user-images.githubusercontent.com/99048123/212947185-592ed658-330f-498b-af30-e7b14eb3463d.png">
 
 ## Link
 
+https://lsieck519.github.io/Weather-Dash/
 
 ## Credit
 
