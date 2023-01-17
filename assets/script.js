@@ -64,7 +64,7 @@ loadRecent()
 
 // if there are any items in the searchedCities array, they will be rendered to the page
 // if there weren't any values for searchedCities, there is nothing to prepend 
-// using prepend to add each new item to the top of the list rather than at the bottom
+// using prepend instead of append to add each new item to the top of the list rather than at the bottom
 function listHistory() {
   let recentCities = JSON.parse(localStorage.getItem("searchedCities"));
   if (recentCities) {
@@ -212,7 +212,7 @@ function search() {
       coordLon = data.coord.lon;
       console.log(coordLon)
 
-      //calling five day forecast using lat and lon
+      //calling five day forecast future function using lat and lon
       future(coordLat, coordLon);
   })
     
