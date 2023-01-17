@@ -91,6 +91,7 @@ clickSearch.addEventListener('click', (event) => {
   search();
   saveHistory();
   listHistory();
+  $("#city-input").val("");
 }
 )
 
